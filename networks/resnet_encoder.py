@@ -96,3 +96,14 @@ class ResnetEncoder(nn.Module):
         self.features.append(self.encoder.layer4(self.features[-1]))
 
         return self.features
+    
+if __name__ == "__main__":
+    enconder = ResnetEncoder(num_layers=18, pretrained=True, num_input_images=1)
+
+    input_image = torch.randn(1, 3, 224, 224)
+
+    features = enconder(input_image)
+    # 输出特征的形状
+    for i, feature in enumerate(features):
+        print(f"Feature {i}: {feature.shape}")
+
