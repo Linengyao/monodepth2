@@ -54,8 +54,10 @@ class Trainer:
         if self.opt.use_stereo:
             self.opt.frame_ids.append("s")
 
-        self.models["encoder"] = networks.ResnetEncoder(
-            self.opt.num_layers, self.opt.weights_init == "pretrained")
+        # self.models["encoder"] = networks.ResnetEncoder(
+        #     self.opt.num_layers, self.opt.weights_init == "pretrained")
+        self.models["encoder"] = networks.create_RepVGG_B0(deploy=False, use_checkpoint=False)
+
         self.models["encoder"].to(self.device)
         self.parameters_to_train += list(self.models["encoder"].parameters())
 
