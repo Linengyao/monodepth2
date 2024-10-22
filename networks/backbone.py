@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch
 
-from resnet_encoder import ResnetEncoder
+# from resnet_encoder import ResnetEncoder
 
 """A from-scratch implementation of MobileNetV3 paper ( for educational purposes ).
 Paper

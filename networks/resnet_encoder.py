@@ -98,7 +98,7 @@ class ResnetEncoder(nn.Module):
         return self.features
     
 if __name__ == "__main__":
-    enconder = ResnetEncoder(num_layers=18, pretrained=True, num_input_images=1)
+    enconder = ResnetEncoder(num_layers=18, pretrained=False, num_input_images=1)
 
     input_image = torch.randn(1, 3, 224, 224)
 

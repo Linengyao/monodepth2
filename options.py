@@ -20,7 +20,7 @@ class MonodepthOptions:
         self.parser.add_argument("--data_path",
                                  type=str,
                                  help="path to the training data",
-                                 default='/home/share/SSD2_3080/zhangdaopeng/work_dir/mon/')
+                                 default='/root/autodl-tmp/monodepth2/monodepth2/dataset/mon/mon')
         self.parser.add_argument("--log_dir",
                                  type=str,
                                  help="log directory",
@@ -87,7 +87,7 @@ class MonodepthOptions:
         self.parser.add_argument("--batch_size",
                                  type=int,
                                  help="batch size",
-                                 default=12)
+                                 default=8)
         self.parser.add_argument("--learning_rate",
                                  type=float,
                                  help="learning rate",
@@ -120,7 +120,7 @@ class MonodepthOptions:
         self.parser.add_argument("--weights_init",
                                  type=str,
                                  help="pretrained or scratch",
-                                 default="pretrained",
+                                 default="scratch",
                                  choices=["pretrained", "scratch"])
         self.parser.add_argument("--pose_model_input",
                                  type=str,

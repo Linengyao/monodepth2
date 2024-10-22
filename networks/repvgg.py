@@ -182,6 +182,8 @@ class RepVGG(nn.Module):
         self.stage3 = self._make_stage(int(256 * width_multiplier[2]), num_blocks[2], stride=2)
         self.stage4 = self._make_stage(int(512 * width_multiplier[3]), num_blocks[3], stride=2)
 
+        self.num_ch_enc = np.array([64, 64, 128, 256, 512])
+
 
     def _make_stage(self, planes, num_blocks, stride):
         strides = [stride] + [1]*(num_blocks-1)
@@ -308,7 +310,7 @@ def get_RepVGG_func_by_name(name):
 
 
 if __name__ == '__main__':
-    model = create_RepVGG_A0(deploy=False)
+    model = create_RepVGG_B0(deploy=False)
     input_image = torch.randn(1, 3, 224, 224)
 
     features = model(input_image)
